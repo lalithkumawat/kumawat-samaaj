@@ -1,0 +1,124 @@
+#%RAML 1.0
+title: Kumawat Samaj
+description: Kumawat samaj ke liye
+mediaType:
+  - application/json
+protocols:
+  - HTTPS
+  - HTTP
+securitySchemes:
+  basic:
+    description: |
+      This API supports Basic Authentication.
+    type: Basic Authentication
+
+/getAllMembers:
+  securedBy: [basic]
+  get:
+    displayName: getMembers
+    description: display all members
+    responses:
+      200:
+        body: 
+          application/json:
+            
+/getMembersByName:
+  get:
+    displayName: getMembers
+    description: Display all members
+    responses:
+      200:
+        body: 
+          application/json:
+    
+/addMember:
+  post:
+    displayName: addMember
+    description: Add members to Kumawat Samaj
+    body:
+          application/json:
+            example:
+              {}
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              message: "Member added successFully"
+
+/editMember:
+  patch:
+    queryParameters:
+      id: number
+    displayName: Edit member Details by Id
+    description: Edit member Details by Id
+    body:
+      application/json:
+        example: 
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              message: updated successFully
+
+/deleteMember/{id}:
+  delete:
+    displayName: Delete member by id
+    description: Delete member by id
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              message: Deleted successfully
+    
+/getAllDonations:
+  get:
+    displayName: Retrive all donations
+    description: Retrive all donations
+    responses:
+      200:
+        body:
+          application/json:
+
+/getDonationByQP:
+  get:
+    queryParameters:
+      id:
+        required: false
+      name:
+        required: false
+    displayName: Retrive donations by name or id
+    description: Retrive donations by name or id
+    responses:
+      200:
+        body:
+          application/json:
+
+/addDonation:
+  post:
+    displayName: add new donation
+    body:
+      application/json:
+    responses:
+      201:
+        body:
+          application/json:
+/editDonation/{id}:
+  patch:
+    displayName: modify  donation
+    body:
+      application/json:
+    responses:
+      201:
+        body:
+          application/json:
+
+            
+        
+
+
+
+          
+
